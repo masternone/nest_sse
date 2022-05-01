@@ -1,0 +1,39 @@
+.target {
+    max-height: 50vh;
+    overflow-y: scroll;
+}
+
+fieldset {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+fieldset.buttons {
+    justify-content: flex-end;
+}
+
+fieldset label {
+    flex: 0 1 100%
+}
+
+fieldset input,
+fieldset textarea {
+    flex: 0 1 100%
+}
+
+fieldset.buttons button + button {
+    margin-left: 15px;
+}
+
+@media screen and (min-width: 768px) {
+    fieldset label {
+        flex: 0 1 20%
+    }
+
+    fieldset input,
+    fieldset textarea {
+        flex: 0 1 75%
+    }
+}
