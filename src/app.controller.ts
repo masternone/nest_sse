@@ -33,8 +33,9 @@ export class AppController {
     @Param('channel') channel: string,
     @Body('sender') sender: string,
     @Body('message') text: string,
-  ): void {
+  ): object {
     this.appService.onNewMessage(channel, { sender, text });
+    return {};
   }
 
   @Sse('message/sse/:channel')

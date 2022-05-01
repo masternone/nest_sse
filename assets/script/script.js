@@ -10,7 +10,7 @@ const postMessage = async ({ name: sender, message }) => {
       message,
     }),
   });
-  return response.json();
+  return await response.json();
 };
 const onSubmitMessage = (e) => {
   e.preventDefault();
@@ -21,7 +21,6 @@ const onSubmitMessage = (e) => {
 };
 setTimeout(() => {
   const form = document.querySelector('form');
-  console.log({ form });
   form.addEventListener('submit', (e) => onSubmitMessage(e));
 }, 100);
 const main = () => {
@@ -36,6 +35,7 @@ const main = () => {
   });
   eventSource.onerror = (event) => {
     console.log({ event });
+    eventSource.close();
   };
   const addElement = ({ sender, text: message }) => {
     const target = document.getElementsByClassName('target')[0];
